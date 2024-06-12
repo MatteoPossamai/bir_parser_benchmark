@@ -1,0 +1,27 @@
+BExp_Const bv 42 Bit8
+(BExp_Const (bv 42 Bit32))
+BExp_Const (bv 16 Bit128)
+(BExp_Const ( bv 42 Bit64 ))
+BExp_UnaryExp BIExp_ChangeSign BExp_Const bv 42 Bit8
+(BExp_UnaryExp BIExp_ChangeSign (BExp_Const (bv 40 Bit8)))
+BExp_UnaryExp BIExp_ChangeSign (BExp_Const (bv 42 Bit8))
+(BExp_UnaryExp BIExp_ChangeSign ( BExp_Const (bv 12 Bit8) ))
+(BExp_BinExp BIExp_Plus (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8)))
+BExp_BinExp BIExp_Plus (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8))
+(BExp_BinExp BIExp_Minus ( BExp_Const (bv 12 Bit8) ) ( BExp_Const (bv 30 Bit8) ))
+BExp_BinExp BIExp_Plus BExp_Const bv 12 Bit8 BExp_Const bv 30 Bit8
+BExp_BinExp BIExp_Plus (BExp_UnaryExp BIExp_ChangeSign (BExp_Const (bv 12 Bit8))) (BExp_Const (bv 30 Bit8))
+BExp_UnaryExp BIExp_ChangeSign (BExp_BinExp BIExp_Plus (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8)))
+BExp_UnaryExp BIExp_ChangeSign BExp_BinExp BIExp_Plus BExp_Const bv 12 Bit8 BExp_Const bv 30 Bit8
+BExp_UnaryExp BIExp_ChangeSign BExp_BinExp BIExp_Plus BExp_Const bv 12 Bit8 BExp_Const bv 30 Bit8
+BExp_UnaryExp BIExp_ChangeSign (BExp_UnaryExp BIExp_ChangeSign (BExp_Const (bv 12 Bit8)))
+BExp_BinExp BIExp_Plus (BExp_BinExp BIExp_Plus (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8))) (BExp_Const (bv 42 Bit8))
+BExp_BinPred BIExp_Equal (BExp_BinExp BIExp_Plus (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8))) (BExp_UnaryExp BIExp_ChangeSign (BExp_Const (bv 42 Bit8)))
+BExp_BinPred BIExp_Equal BExp_BinExp BIExp_Plus BExp_Const bv 12 Bit8 BExp_Const bv 30 Bit8 BExp_UnaryExp BIExp_ChangeSign BExp_Const bv 42 Bit8
+BExp_IfThenElse (BExp_BinPred BIExp_Equal (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8))) (BExp_Const (bv 42 Bit8)) (BExp_Const (bv 50 Bit8))
+BExp_IfThenElse BExp_BinPred BIExp_Equal BExp_Const bv 12 Bit8 BExp_Const bv 30 Bit8 BExp_Const bv 42 Bit8 BExp_Const bv 50 Bit8
+BExp_IfThenElse (BExp_BinPred BIExp_Equal (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8))) (BExp_UnaryExp BIExp_ChangeSign (BExp_Const (bv 42 Bit8))) (BExp_Const (bv 50 Bit8))
+BExp_IfThenElse (BExp_BinPred BIExp_Equal (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8))) (BExp_BinExp BIExp_Plus (BExp_Const (bv 42 Bit8)) (BExp_Const (bv 50 Bit8))) (BExp_Const (bv 60 Bit8))
+BExp_IfThenElse (BExp_BinPred BIExp_Equal (BExp_Const (bv 12 Bit8)) (BExp_Const (bv 30 Bit8))) (BExp_IfThenElse (BExp_BinPred BIExp_Equal (BExp_Const (bv 42 Bit8)) (BExp_Const (bv 50 Bit8))) (BExp_Const (bv 60 Bit8)) (BExp_Const (bv 70 Bit8))) (BExp_Const (bv 80 Bit8))
+BExp_Den (BVar R1)
+BExp_Den BVar R1
