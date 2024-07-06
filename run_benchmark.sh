@@ -6,14 +6,14 @@ echo
 python3 ./bench_python/benchmark.py $1
 
 # Rust benchmark
-# echo
-# cd bench_rust
-# cargo build --release > /dev/null 2>&1
-# ./target/release/bench_rust
+echo
+cd bench_rust
+cargo build --release > /dev/null 2>&1
+./target/release/bench_rust
 
 # Bindings benchmark
 echo 
-cd bench_bindings
+cd ../bench_bindings
 python examples/example.py
 
 # --- Python Benchmark ---
